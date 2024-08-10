@@ -1,0 +1,110 @@
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title> TeleHakim</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="{% static 'image/1.png' %}" rel="icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+
+    <!-- Template Main CSS File -->
+    <link href="{% static 'asset/style.css' %}" rel="stylesheet">
+    
+
+</head>
+
+<body>
+    <header id="header" class="header  d-flex align-items-center ">
+
+        <div class="d-flex align-items-center justify-content-between">
+            <a href="{% url 'account:home' %}" class="logo d-flex align-items-center">
+                <img src="{% static 'assets/img/logo.png' %}" alt="">
+                <p class="d-none d-lg-block text-white">TELE-HAKIM</p>
+            </a>
+
+        </div>
+        <!-- End Logo -->
+        <nav class="header-nav ms-auto">
+            <ul class="d-flex align-items-center">
+
+                <li class="nav-item ">
+
+                    <a class="text-decoration-none text-white p-2 px-5" href="{% url 'dashboard:patient-dashboard'%}">dashboard</a>
+
+                </li>
+                <!-- End Notification Nav -->
+
+
+                <li class="nav-item  pe-3">
+
+                    <a class="text-decoration-none btn text-white p-2" href="{% url 'account:logout' %}">logout</a>
+                    <!-- End Profile Image Icon -->
+                </li>
+                <li class="nav-item ">
+                    <div class="ms-5 me-2" id="google_translate_element"></div>
+                    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                    <script>
+                      function googleTranslateElementInit(){
+                        new google.translate.TranslateElement(
+                          {pageLanguage: 'en',
+                          includedLanguages: 'am,om,en,ti,aa,so'},
+                          'google_translate_element'
+                        );
+                      }
+                    </script>
+                </li>
+                
+            </ul>
+        </nav>
+        <!-- End Icons Navigation -->
+    </header>
+
+    <main id="main" class="main">
+
+        <div class="pagetitle">
+            <h1>{% block header %} {% endblock %}</h1>
+
+        </div>
+        <!-- End Page Title -->
+
+        <section class="section">
+            {% block middle %}{% endblock %}
+        </section>
+        <script>
+            function post_none() {
+                setTimeout(function() {
+                    var cm = document.getElementsByClassName('custom-modal')[0];
+                    cm.classList.add('post_none');
+                }, 2000);
+            }
+        </script>
+    </main>
+    <!-- End #main -->
+
+    <footer id="footer" class="footer align-item-center">
+        <div class="copyright">
+            &copy; Copyright <strong><span>TeleHakim System</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+        </div>
+    </footer>
+    <!-- End Footer -->
+</body>
+
+</html>
